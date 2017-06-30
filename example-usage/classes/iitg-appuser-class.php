@@ -4,7 +4,7 @@
  * IITG-AppUser-Class.php
  * 
  * The IITG AppUser class can be used to perform the task of authenticating
- * users having valid IITG Email credentials.
+ * users having valid credentials on the authenticating POP mail server.
  *
  * Written by: Nanu Alan Kachari, Department of CSE, IIT Guwahati
  * on 30 June 2017
