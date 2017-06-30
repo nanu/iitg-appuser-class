@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="IITG Webmail Authentication Application">
+    <meta name="description" content="POP Authentication Application">
     <meta name="author" content="Nanu Alan Kachari">
     <title><?php if (defined('APPTITLE')) { echo APPTITLE; } ?></title>
 </head>
