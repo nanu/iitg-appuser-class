@@ -1,5 +1,5 @@
 # iitg-appuser-class
-This is a PHP Class implementation for enabling user authentication using IITG Mailservers
+This is a PHP Class implementation for enabling user authentication using POP Mailservers
 
 Dependencies:
 The PHP IMAP mail related extension is required to be pre-installed on the web server (php-imap/php5-imap).
