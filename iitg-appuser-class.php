@@ -4,9 +4,7 @@
  * IITG-AppUser-Class.php
  * 
  * The IITG AppUser class can be used to perform the task of authenticating
- * users having valid IITG Email credentials. This class has dependency on
- * the Security Image Class (Security-Image-Class.php) for generating the
- * CAPTCHA image during the authentication process.
+ * users having valid credentials on the authenticating POP mail server.
  * 
  *
  * Written by: Nanu Alan Kachari, Department of CSE, IIT Guwahati
@@ -26,22 +24,14 @@ class IITGAppUser
 	 */
 	public function login($theUsername,$thePassword,$theMailserver)
 	{
-		/* check ACL table */
-		if($this->isAccessAllowed($theUsername,ACLTABLE,CHECKINFIELD))
+		if($this->authSecurePOP3($theMailserver,$theUsername,$thePassword) == 0)
 		{
-			/* $theUsername is allowed in ACL, check login credentials */
-			if($this->authSecurePOP3($theMailserver,$theUsername,$thePassword) == 0)
-			{
-				/* Login successful, set PHP SESSION variables & return TRUE */
-				$_SESSION['loggedin'] = true;
-				$_SESSION['username'] = $theUsername;
-				return true;
-			}else{
-				/* Login NOT successful, return FALSE */
-				return false;
-			}
+			/* Login successful, set PHP SESSION variables & return TRUE */
+			$_SESSION['loggedin'] = true;
+			$_SESSION['username'] = $theUsername;
+			return true;
 		}else{
-			/* $theUsername is NOT allowed in ACL, return FALSE */
+			/* Login NOT successful, return FALSE */
 			return false;
 		}
 	}
@@ -74,7 +64,7 @@ class IITGAppUser
 	private function authSecurePOP3($theMailserver, $theUsername, $thePassword)
 	{
 		/* check if the input for $theMailserver is blank */
-		if( linkToIITGmailsrv!="" )
+		if( $theMailserver!="" )
 		{
 			/* input for $theMailserver is not blank */
 			
