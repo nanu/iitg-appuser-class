@@ -2,7 +2,7 @@
 /*
  * config.php
  * 
- * Main configuration file of the IITG Webmail Authentication Application.
+ * Main configuration file of the POP Authentication Application.
  * 
  * Set the respective values as per your local requirements.
  *
