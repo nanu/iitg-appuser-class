@@ -5,7 +5,7 @@ Dependencies:
 The PHP IMAP mail related extension is required to be pre-installed on the web server (php-imap/php5-imap).
 
 Note:
-"https" should be used for implementing the login/secure URLs when-ever you send out sensitive information accross the network (like the username and password)
+"https" should be used for implementing the login/secure URLs when-ever you send out sensitive information across the network (like the username and password)
 
 Check-out the "example-usage" folder, which contains a sample use-case of this class using bootstrap.min.css<br />
 example-usage/<br />
