@@ -13,6 +13,7 @@ example-usage/<br />
 │   ├── iitg-captcha-class.php #IITG CAPTCHA Class<br />
 │   └── iitg-appuser-class.php #IITG AppUser Class<br />
 ├── config.php #Global config file<br />
+├── captcha-image.php #CAPTCHA generating file<br />
 ├── css<br />
 │   └── bootstrap.min.css #bootstrap css file<br />
 ├── footer.php #page-footer<br />
