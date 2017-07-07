@@ -4,6 +4,8 @@ This is an extended PHP Class implementation of the iitg-appuser-class, implemen
 Dependencies:
 The PHP IMAP mail related extension, PHP GD libraries are required to be pre-installed on the web server (php-imap/php5-imap, php-gd). Additionally, this class uses a TTF font file to generate the CAPTCHA characters. In our use-case example, we use the "xeroxmalfunction.ttf", downloaded from http://www.webpagepublicity.com/free-fonts-x.html#Free%20Fonts
 
+This extended class also implements ACL feature using MySQL backend database. You need to specify the database credentials along with the ACL Table and Field.
+
 Note:
 "https" should be used for implementing the login/secure URLs when-ever you send out sensitive information across the network (like the username and password)
 
