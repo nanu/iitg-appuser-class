@@ -34,7 +34,19 @@ define('CAPTCHAFONTSIZE','50');
 define('CAPTCHAFONTANGLE','0');
 define('CAPTCHAFONT','fonts/xeroxmalfunction.ttf');
 
+//set your database credentials here
+define('DBHOST','mydbhost');
+define('DBUSER','mydbusername');
+define('DBPASS','mydbpassword');
+define('DBNAME','mydbname');
+define('DBCHARSET','utf8');
+
+//set your ACL database table settings here
+define('MEMBERS','myacltable');
+define('CHECKINFIELD','mytablefield');
+
 //classes used by the application
+require('classes/Database.php');
 require('classes/iitg-appuser-class.php');
 require('classes/iitg-captcha-class.php');
 
