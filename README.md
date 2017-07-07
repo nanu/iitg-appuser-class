@@ -16,6 +16,8 @@ example-usage/<br />
 ├── captcha-image.php #CAPTCHA generating file<br />
 ├── css<br />
 │   └── bootstrap.min.css #bootstrap css file<br />
+├── fonts<br />
+│   └── xeroxmalfunction.ttf #TTF font file<br />
 ├── footer.php #page-footer<br />
 ├── header.php #page-header<br />
 ├── login.php #page-login<br />
