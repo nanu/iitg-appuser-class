@@ -18,24 +18,53 @@ class IITGAppUser
 {
 	
 	/*
-	 * login($theUsername,$thePassword,$theMailserver)
+	 * login($theUsername,$thePassword,$theMailserver,$theCaptchaCode)
 	 * validates the inputs from a login-form.
 	 * Returns TRUE if all inputs are valid, FALSE otherwise.
 	 */
-	public function login($theUsername,$thePassword,$theMailserver)
+	public function login($theUsername,$thePassword,$theMailserver,$theCaptchaCode)
 	{
-		if($this->authSecurePOP3($theMailserver,$theUsername,$thePassword) == 0)
+		if(md5($_SESSION['icode']) == md5($theCaptchaCode))
 		{
-			/* Login successful, set PHP SESSION variables & return TRUE */
-			$_SESSION['loggedin'] = true;
-			$_SESSION['username'] = $theUsername;
-			return true;
+			if($this->isAccessAllowed($username,MEMBERS,CHECKINFIELD))
+			{
+				if($this->authSecurePOP3($theMailserver,$theUsername,$thePassword) == 0)
+				{
+					/* Login successful, set PHP SESSION variables & return TRUE */
+					$_SESSION['loggedin'] = true;
+					$_SESSION['username'] = $theUsername;
+					return true;
+				}else{
+					/* Login NOT successful, return FALSE */
+					return false;
+				}
+			}else{
+				return false;
+			}
 		}else{
-			/* Login NOT successful, return FALSE */
 			return false;
 		}
 	}
 
+	/*
+	 * isAccessAllowed($theUsername,$theTablename,$theFieldname) - Searches for $theUsername
+	 * in $theFieldname of $theFablename and returns TRUE if found, FALSE otherwise
+	 */
+	private function isAccessAllowed($theUsername,$theTablename,$theFieldname)
+	{
+		$row = database::run("SELECT * FROM `$theTablename` WHERE `$theFieldname`=?", [$theUsername])->fetch();
+
+		if( !$row || $row < 1 )
+		{
+			return false;
+
+		}
+		elseif( $row || $row == 1 )
+		{
+			return true;
+		}
+	}
+	
 	/*
 	 * logout() destroys the current session, logs out the current user
 	 */
