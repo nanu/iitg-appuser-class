@@ -6,9 +6,7 @@
  * The IITG AppUser class can be used to perform the task of authenticating
  * users having valid credentials on the authenticating POP mail server.
  * 
- *
- * Written by: Nanu Alan Kachari, Department of CSE, IIT Guwahati
- * on 30 June 2017
+ * Written by: Nanu Alan Kachari, Department of CSE, IIT Guwahati on 7 July 2017
  * 
  * Licesed under the GNU General Public License v3.0
  *
